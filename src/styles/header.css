@@ -1,0 +1,94 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:100,400);
+
+/* Definindo o funcionamento da tag `a` no contexto do header: */
+
+/* .reverse-color: */
+/* Define a cor padrão dos links usando a variável --primary-color. */
+.reverse-color {
+    color: var(--primary-color);
+}
+
+/* .reverse-color:hover: */
+/* Altera a cor dos links para --second-text-color quando o mouse passa sobre eles. */
+.reverse-color:hover {
+    color: var(--second-text-color);
+}
+
+/* Definindo comportamento menu mobile: */
+
+/* .ml-lg: */
+/* Define uma margem à direita de 2.875rem. */
+.ml-lg {
+    margin-right: 2.875rem;
+}
+
+/* .mobile-menu: */
+/* Exibe o menu móvel e define um z-index de 3 para garantir que ele fique acima de outros elementos. */
+.mobile-menu {
+    display: initial;
+    z-index: 3;
+}
+
+/* .mobile-menu-content: */
+/* Configura o menu móvel para ocupar toda a tela, com posicionamento absoluto e um layout flexível.
+     Define o padding superior e ajusta o tamanho do menu para preencher a largura e altura da viewport. */
+.mobile-menu-content {
+    position: absolute;
+    display: flex;
+    top: 0;
+    left: 0;
+    padding-top: 2.25rem;
+    width: 100vw;
+    height: 100vh;
+    background: var(--bg-color);
+}
+
+/* .mobile-menu-content ul: */
+/* Configura a lista de navegação para centralizar os itens, com espaçamento de 4rem entre eles. */
+.mobile-menu-content ul {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+/* .mobile-menu-content a: */
+/* Define o tamanho da fonte dos links no menu móvel usando a variável --fs-lg. */
+.mobile-menu-content a {
+    font-size: var(--fs-lg);
+}
+
+/* Comportamento no desktop: */
+
+/* @media (width >= 1280px): */
+/* Aplica estilos específicos para telas grandes (largura mínima de 1280px). */
+@media (width >=1280px) {
+
+    /* header: */
+    /* Define a posição relativa do cabeçalho e ajusta o z-index para 1. */
+    header {
+        position: relative;
+        z-index: 1;
+
+    }
+
+    /* nav > img: */
+    /* Exibe a imagem de navegação no desktop. */
+    nav>img {
+        display: initial;
+    }
+
+    /* .mobile-menu: */
+    /* Oculta o menu móvel em telas grandes. */
+    .mobile-menu {
+        display: none;
+    }
+
+    /* .mobile-menu-content: */
+    /* Oculta o conteúdo do menu móvel em telas grandes. */
+    .mobile-menu-content {
+        display: none;
+    }
+}

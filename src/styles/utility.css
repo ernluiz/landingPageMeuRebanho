@@ -1,0 +1,132 @@
+/* Classes de padding (.py-base, .py-lg, .py-xl, .px-lg): */
+
+/* .py-base, .py-lg, .py-xl: */
+/* Define o padding vertical (acima e abaixo) para os elementos usando variáveis. 
+   padding-block: Aplica padding tanto ao topo quanto à parte inferior do elemento.
+   As variáveis --py-base, --py-lg, e --py-xl representam diferentes valores de padding, 
+   definidos previamente no arquivo index.css. */
+.py-base {
+    padding-block: var(--py-base);
+}
+
+.py-lg {
+    padding-block: var(--py-lg);
+}
+
+.py-xl {
+    padding-block: var(--py-xl);
+}
+
+/* .px-lg: */
+/* Define o padding horizontal (à esquerda e à direita) usando a variável --px-lg.
+   padding-inline: Aplica padding tanto à esquerda quanto à direita do elemento. */
+.px-lg {
+    padding-inline: var(--px-lg);
+}
+
+/* Classe para visibilidade somente desktop (.desktop-only): */
+
+/* .desktop-only: */
+/* Inicialmente oculta o elemento (usando display: none;). 
+   Essa classe é usada para elementos que devem ser visíveis apenas em telas maiores, como desktops. */
+.desktop-only {
+    display: none;
+}
+
+/* Classes de layout (.even-columns, .items-center, .flex, .grid): */
+
+/* .even-columns: */
+/* Configura o elemento como um grid com espaçamento (gap) de 1rem entre os itens. 
+   É útil para criar layouts com colunas de tamanhos iguais. */
+.even-columns {
+    display: grid;
+    gap: 1rem;
+}
+
+/* .items-center: */
+/* Centraliza verticalmente os itens em um conteiner flex ou grid. */
+.items-center {
+    align-items: center;
+}
+
+/* .justify-between: */
+/* Define como o navegador distribui espaço entre os itens de conteúdo 
+ao longo do eixo principal de um conteiner flex. */
+.justify-between {
+    justify-content: space-between;
+}
+
+/* .flex: */
+/* Define o elemento como um conteiner flex, permitindo o uso do modelo de layout Flexbox. */
+.flex {
+    display: flex;
+}
+
+/* .grid: */
+/* Define o elemento como um conteiner de grid, permitindo o uso do modelo de layout CSS Grid. */
+.grid {
+    display: grid;
+}
+
+/* Classes de espaçamento (.gap-1, .gap-1.5): */
+
+/* .gap-1, .gap-1.5: */
+/* Define o espaçamento (gap) entre os itens dentro de um conteiner flex ou grid.
+   O valor de gap é definido em rem e varia entre 1rem e 1.5rem. */
+.gap-1 {
+    gap: 2rem;
+}
+
+.gap-1\.5 {
+    gap: 1.5rem;
+}
+
+/* .btn-wrapper: */
+/* Apenas uma classe para adicionarmos aspectos de botão a qualquer elemento, 
+utilizado juntamente aos ícones. */
+.btn-wrapper {
+    cursor: pointer;
+    padding: 2px;
+}
+
+/* Classe de container responsivo (.container): */
+
+/* .container: */
+/* Define um conteiner centralizado e responsivo.
+   --max-width: 680px; Define a largura máxima padrão do conteiner como 680px.
+   width: min(...); Define a largura do conteiner como a menor entre --max-width 
+   e 100% menos duas vezes o padding horizontal (var(--px-lg) * 2), 
+   garantindo que ele não ultrapasse a largura da tela.
+   margin-inline: auto; Centraliza o conteiner horizontalmente. */
+.container {
+    --max-width: 680px;
+    width: min(var(--max-width), 100% - var(--px-lg) * 2);
+    margin-inline: auto;
+}
+
+/* Responsividade (Media Queries): */
+
+/* @media (width >= 1280px): */
+/* Aplica estilos específicos para telas grandes (largura mínima de 1280px). */
+@media (width >=1280px) {
+
+    /* .container: */
+    /* Aumenta a largura máxima do conteiner para 1050px. */
+    .container {
+        --max-width: 1050px;
+    }
+
+    /* .desktop-only: */
+    /* Torna visíveis elementos que estavam ocultos em telas menores (display: initial;). */
+    .desktop-only {
+        display: initial;
+    }
+
+    /* .even-columns: */
+    /* Modifica o comportamento do grid para dispor os itens em colunas
+     de largura igual (grid-auto-flow: column; e grid-auto-columns: 1fr;). */
+    .even-columns {
+        grid-auto-flow: column;
+        grid-auto-columns: 1fr;
+    }
+}
