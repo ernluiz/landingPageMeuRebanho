@@ -40,8 +40,6 @@ export default function Header() {
         if (showMobileMenu) {
             document.body.classList.add("no-scroll");
 
-            const preventScroll = (e: Event) => e.preventDefault();
-
             return () => {
                 document.body.classList.remove("no-scroll");
             };

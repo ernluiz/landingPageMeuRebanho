@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "../styles/home.css";
 import "../styles/utility.css";
 import Button from "../components/button/button";
@@ -108,15 +107,15 @@ export default function Home() {
                             <p>Telefone: (45) 99876-5432</p>
                             <h3>Email:</h3>
                             <p>contato@techgold.com.br</p>
+                            <br />
                             <div className="icon-container">
-                                <a href="#" style={{ display: "none" }}></a>
                                 <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
                                     <img src={Imagem7} alt="Imagem de exemplo" className="icon" />
                                 </a>
                                 <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
                                     <img src={Imagem8} alt="Imagem de exemplo" className="icon" />
                                 </a>
-                                <a href="https://www.facebok.com/" target="_blank">
+                                <a href="https://www.facebok.com/" target="_blank" rel="noopener noreferrer">
                                     <img src={Imagem9} alt="Imagem de exemplo" className="icon" />
                                 </a>
                                 <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
@@ -128,7 +127,7 @@ export default function Home() {
                             <h3>Nosso escritório:</h3>
                             <p>Techgold – Av. da FAG, 551 - Loteamento FAG, Cascavel - PR, CEP 85806-095</p>
                             <img src={Imagem6} alt="Imagem de exemplo" className="gallery-image" />
-                            <a href="https://www.google.com/maps/place/Av.+da+Fag,+551+-+Santo+In%C3%A1cio,+Cascavel+-+PR,+85806-096" target="_blank">
+                            <a href="https://www.google.com/maps/place/Av.+da+Fag,+551+-+Santo+In%C3%A1cio,+Cascavel+-+PR,+85806-096" target="_blank" rel="noopener noreferrer">
                                 Clique aqui para abrir no Google Maps
                             </a>
                         </div>
