@@ -1,20 +1,10 @@
 @import url(https://fonts.googleapis.com/css?family=Lato:100,400);
 
-/* Estilos para todos os elementos */
-/* Configura o `box-sizing` para todos os elementos, bem como seus
- pseudo-elementos `::before` e `::after`, para `border-box`. 
- Isso faz com que o padding e a borda de um elemento sejam incluídos
-  em sua largura e altura totais, simplificando o layout */
 ::before,
 *::after {
     box-sizing: border-box;
 }
 
-/* Estilos globais */
-/* Remove a margem e o padding padrão de todos os elementos, 
-herda as configurações de fonte do elemento pai, e aplica 
-técnicas de suavização de fontes para melhorar a renderização 
-do texto em diferentes navegadores */
 * {
     margin: 0;
     padding: 0;
@@ -23,20 +13,16 @@ do texto em diferentes navegadores */
     -moz-osx-font-smoothing: grayscale;
 }
 
-/* Estilos para root */
-/*Define várias variáveis CSS, que podem ser reutilizadas em todo o documento. 
-Isso inclui cores (para fundo, texto e elementos), famílias de fontes, 
-pesos de fonte, tamanhos de fonte, e espaçamentos. As variáveis tornam 
-mais fácil alterar o estilo da interface em um único lugar e aplicá-las 
-de forma consistente em todo o projeto*/
 :root {
-    --bg-color: #FFF;
-    --text-color: #252B42;
+    --bg-color: #f4f4f4;
+    --bg-color-transparent: rgba(89, 222, 158, 0.5);
+    --text-color: #222222;
     --second-text-color: #737373;
     --light-text-color: #FFF;
-    --light-gray: #F8F8F8;
-    --primary-color: #23A6F0;
-    --secondary-color: #B2E3FF;
+    --light-gray: #b1ffa5;
+    --primary-color: #0CD574;
+    --secondary-color: #59de9e;
+    --terciary-color: #22542D;
 
     --ff-sans: "Montserrat", system-ui, sans-serif;
     --fw-base: 400;
@@ -56,11 +42,6 @@ de forma consistente em todo o projeto*/
     --px-lg: 1.5rem;
 }
 
-/* Estilos para html */
-/*Configura a fonte padrão, peso, tamanho, altura da linha 
-e cor do texto para o documento. Especifica que o overflow 
-horizontal deve ser escondido e que o comportamento
- de rolagem deve ser suave*/
 html {
     font-family: var(--ff-sans);
     font-weight: var(--fw-base);
@@ -71,18 +52,11 @@ html {
     scroll-behavior: smooth;
 }
 
-/* Estilos para body */
-/* Define a cor de fundo do corpo da página 
-e esconde o overflow horizontal */
 body {
     background-color: var(--bg-color);
     overflow-x: hidden;
 }
 
-/* Estilos para títulos (`h1`, `h2`, `h3`) */
-/* Define a altura da linha, cor do texto, 
-peso da fonte e espaçamento entre letras para títulos, 
-garantindo consistência e legibilidade */
 h1,
 h2,
 h3 {
@@ -92,10 +66,6 @@ h3 {
     letter-spacing: -0.04em;
 }
 
-/* Específico para cada título */
-/* Especifica os tamanhos de fonte 
-para `h1`, `h2` e `h3`, usando as 
-variáveis definidas anteriormente */
 h1 {
     font-size: var(--fs-2xl);
 }
@@ -108,12 +78,6 @@ h3 {
     font-size: var(--fs-lg);
 }
 
-/* Estilos de links (`a`) */
-/* Remove a decoração padrão (sublinhado) dos links 
-e herda a cor do texto. No estado de hover, o texto 
-do link adquire a cor principal definida e aplica uma 
-técnica de clipping de fundo para criar um efeito 
-visual interessante */
 a {
     text-decoration: none;
     color: var(--second-text-color);
@@ -125,26 +89,15 @@ a:hover {
     color: var(--primary-color);
 }
 
-/* Estilo de imagens (`img`) */
-/* Define que as imagens nunca excedam 100% de sua largura 
-conteiner e que sejam exibidas como blocos inline */
 img {
     max-width: 100%;
     display: inline-block;
 }
 
-/* Estilo para listas (`ul`) */
-/* Remove o estilo de lista padrão (marcadores) 
-de todas as listas não ordenadas (`ul`) */
 ul {
     list-style: none;
 }
 
-/* Definições responsividade (Media Queries) */
-/*Ajusta as variáveis de tamanho de fonte e padding 
-para telas maiores (largura mínima de 1280px), 
-aumentando as dimensões para melhorar a legibilidade 
-e o espaçamento em dispositivos de grande porte */
 @media (width >=1280px) {
     :root {
         --fs-lg: 2rem;

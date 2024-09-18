@@ -1,17 +1,78 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Button from "../components/button/button";
 import Logo from "../assets/logoMeuRebanho.svg";
 import Menu from "../assets/hamburger-menu.svg";
 import Close from "../assets/close-square.svg";
-import Retangulo1 from "../assets/r1.svg";
-import Retangulo2 from "../assets/r2.svg";
 import "../styles/header.css";
-import "../styles/hero.css";
+import "../styles/home.css";
 import "../styles/utility.css";
 
 export default function Header() {
-    // Hook useState para gerenciar o estado do menu mobile
-    const [showMobileMenu, setShowMobileMenu] = useState(false);
+    const [showMobileMenu, setShowMobileMenu] = useState<boolean>(false);
+    const [activeSection, setActiveSection] = useState<string>("");
+
+    useEffect(() => {
+        const sections = document.querySelectorAll("section");
+
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { threshold: 0.5 }
+        );
+
+        sections.forEach((section) => {
+            observer.observe(section);
+        });
+
+        return () => {
+            sections.forEach((section) => {
+                observer.unobserve(section);
+            });
+        };
+    }, []);
+
+    useEffect(() => {
+        if (showMobileMenu) {
+            document.body.classList.add("no-scroll");
+
+            const preventScroll = (e: Event) => e.preventDefault();
+
+            return () => {
+                document.body.classList.remove("no-scroll");
+            };
+        } else {
+            document.body.classList.remove("no-scroll");
+        }
+    }, [showMobileMenu]);
+
+    const getLinkClass = (section: string) => (section === activeSection ? "active" : "");
+
+    // Função para rolar para a seção e fechar o menu mobile
+    const handleMobileMenuLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, sectionId: string) => {
+        event.preventDefault(); 
+        setShowMobileMenu(false);
+    
+        const normalizedSectionId = sectionId.startsWith('#') ? sectionId : `#${sectionId}`;
+    
+        const section = document.querySelector(normalizedSectionId) as HTMLElement;
+        
+        if (section) {
+            const offsetTop = section.getBoundingClientRect().top + window.scrollY;
+    
+            window.scrollTo({
+                top: offsetTop - 80,
+                behavior: 'smooth',
+            });
+        } else {
+            console.log(`Section with ID ${sectionId} not found`);
+        }
+    };
+    
 
     return (
         <>
@@ -19,33 +80,28 @@ export default function Header() {
                 <header className="container py-sm">
                     <div>
                         <nav className="flex items-center justify-between">
-                            <img src={Logo} alt="Logo DonaFrost" width={80} height={80} />
-
+                            <img src={Logo} alt="Logo Meu Rebanho" width={80} height={80} />
                             <div className="desktop-only">
                                 <ul className="no-bullets flex gap-1">
                                     <li>
-                                        <a href="#">Home</a>
+                                        <a href="#hero" className={getLinkClass("hero")}>Home</a>
                                     </li>
                                     <li>
-                                        <a href="#solution">Soluções</a>
+                                        <a href="#highlights" className={getLinkClass("highlights")}>Nossos destaques</a>
                                     </li>
                                     <li>
-                                        <a href="#testimonials">Depoimentos</a>
+                                        <a href="#testimonials" className={getLinkClass("testimonials")}>Depoimentos</a>
                                     </li>
                                     <li>
-                                        <a href="#pricing">Preços</a>
-                                    </li>
-                                    <li>
-                                        <a href="#contact">Contato</a>
+                                        <a href="#find-us" className={getLinkClass("find-us")}>Onde nos encontrar</a>
                                     </li>
                                 </ul>
                             </div>
 
                             <div className="desktop-only">
-                                <div className="flex items-center" style={{ gap: 10 }} >
-                                    <a className="reverse-color ml-lg" href="">Login</a>
+                                <div className="flex items-center" style={{ gap: 10 }}>
+                                    <a className="reverse-color ml-lg" href="#login">Login</a>
                                     <Button text="Cadastre-se" />
-                                    {/* <Button text="Sair" secondary /> */}
                                 </div>
                             </div>
 
@@ -55,19 +111,16 @@ export default function Header() {
                                         <div className="container flex">
                                             <ul>
                                                 <li>
-                                                    <a href="#">Home</a>
+                                                    <a href="#hero" className={getLinkClass("hero")} onClick={(e) => handleMobileMenuLinkClick(e, "#hero")}>Home</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#solution">Soluções</a>
+                                                    <a href="#highlights" className={getLinkClass("highlights")} onClick={(e) => handleMobileMenuLinkClick(e, "#highlights")}>Nossos destaques</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#testimonials">Depoimentos</a>
+                                                    <a href="#testimonials" className={getLinkClass("testimonials")} onClick={(e) => handleMobileMenuLinkClick(e, "#testimonials")}>Depoimentos</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#pricing">Preços</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#contact">Contato</a>
+                                                    <a href="#find-us" className={getLinkClass("find-us")} onClick={(e) => handleMobileMenuLinkClick(e, "#find-us")}>Onde nos encontrar</a>
                                                 </li>
                                                 <li>
                                                     <a href="#login" className="reverse-color" >Login</a>
