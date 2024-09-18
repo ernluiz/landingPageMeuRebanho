@@ -107,9 +107,9 @@ export default function Home() {
                             <h3>Contato:</h3>
                             <p>Telefone: (45) 99876-5432</p>
                             <h3>Email:</h3>
-                            <p>contato@fazendatech.com.br</p>
+                            <p>contato@techgold.com.br</p>
                             <div className="icon-container">
-                                <a href="#" style={{display:"none"}}></a>
+                                <a href="#" style={{ display: "none" }}></a>
                                 <a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">
                                     <img src={Imagem7} alt="Imagem de exemplo" className="icon" />
                                 </a>
@@ -126,7 +126,7 @@ export default function Home() {
                         </div>
                         <div className="highlight-item">
                             <h3>Nosso escritório:</h3>
-                            <p>Fazenda Tech – Av. da FAG, 551 - Loteamento FAG, Cascavel - PR, CEP 85806-095</p>
+                            <p>Techgold – Av. da FAG, 551 - Loteamento FAG, Cascavel - PR, CEP 85806-095</p>
                             <img src={Imagem6} alt="Imagem de exemplo" className="gallery-image" />
                             <a href="https://www.google.com/maps/place/Av.+da+Fag,+551+-+Santo+In%C3%A1cio,+Cascavel+-+PR,+85806-096" target="_blank">
                                 Clique aqui para abrir no Google Maps
@@ -135,8 +135,6 @@ export default function Home() {
                     </div>
                 </div>
             </section>
-
-
         </>
     );
 }

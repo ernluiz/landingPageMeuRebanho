@@ -1,5 +1,5 @@
 #hero {
-    background: var(--light-gray);
+    background: #f4f4f4;
     border-top: 0.125rem solid #e4e4e4;
     min-height: 90vh;
     width: 100%;
@@ -13,7 +13,7 @@
 #highlights,
 #testimonials,
 #find-us {
-    background: var(--light-gray);
+    background: #f4f4f4;
     border-top: 0.125rem solid #e4e4e4;
     min-height: 90vh;
     width: 100%;
