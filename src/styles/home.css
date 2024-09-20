@@ -1,7 +1,7 @@
 #hero {
     background: #f4f4f4;
     border-top: 0.125rem solid #e4e4e4;
-    min-height: 90vh;
+    /* min-height: 90vh; */
     width: 100%;
     display: flex;
     padding-bottom: 0;
@@ -15,7 +15,7 @@
 #find-us {
     background: #f4f4f4;
     border-top: 0.125rem solid #e4e4e4;
-    min-height: 90vh;
+    /* min-height: 90vh; */
     width: 100%;
     display: flex;
     padding-bottom: 0;
