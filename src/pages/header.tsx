@@ -99,7 +99,9 @@ export default function Header() {
                             <div className="desktop-only">
                                 <div className="flex items-center" style={{ gap: 10 }}>
                                     <a className="reverse-color ml-lg" href="#login">Login</a>
-                                    <Button text="Cadastre-se" />
+                                    <Button text="Cadastre-se" func={function (): void {
+                                        throw new Error("Function not implemented.");
+                                    } } />
                                 </div>
                             </div>
 

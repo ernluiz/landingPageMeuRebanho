@@ -36,10 +36,14 @@ export default function Home() {
                     </h3>
                     <div className="flex gap-1">
                         <span>
-                            <Button text="Cadastre-se" />
+                            <Button text="Cadastre-se" func={function (): void {
+                                throw new Error("Function not implemented.");
+                            } } />
                         </span>
                         <span className="desktop-only">
-                            <Button text="Veja mais" secondary />
+                            <Button text="Veja mais" secondary func={function (): void {
+                                throw new Error("Function not implemented.");
+                            } } />
                         </span>
                     </div>
                 </div>
@@ -80,7 +84,10 @@ export default function Home() {
                                 Ideal para pequenos produtores.
                             </h4>
                             <span>
-                                <Button text="Assinar" />
+                                <Button
+                                    text="Assinar"
+                                    func={() => console.log("Você assinou o Plano Básico!")}
+                                />
                             </span>
                             <div className="features-container">
                                 <div className="features-container">
@@ -106,7 +113,10 @@ export default function Home() {
                                 Ideal para produtores que buscam otimizar a gestão do gado.
                             </h4>
                             <span>
-                                <Button text="Assinar" />
+                                <Button
+                                    text="Assinar"
+                                    func={() => console.log("Você assinou o Plano Avançado!")}
+                                />
                             </span>
                             <div className="features-container">
                                 <span className="features">
@@ -125,12 +135,15 @@ export default function Home() {
                         </div>
                         <div className="plano-card">
                             <h3>Plano Premium</h3>
-                            <p className="plano-preco">R$ 99,90/mês</p>
+                            <p className="plano-preco">R$ 149,90/mês</p>
                             <h4>
                                 Para grandes produtores que desejam total controle e eficiência.
                             </h4>
                             <span>
-                                <Button text="Assinar" />
+                                <Button
+                                    text="Assinar"
+                                    func={() => console.log("Você assinou o Plano Premium!")}
+                                />
                             </span>
                             <div className="features-container">
                                 <span className="features">
