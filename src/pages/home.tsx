@@ -13,6 +13,7 @@ import Imagem7 from "../assets/youtube.png";
 import Imagem8 from "../assets/instagram.png";
 import Imagem9 from "../assets/facebook.png";
 import Imagem10 from "../assets/linkedin.png";
+import Check from "../assets/check.svg";
 
 
 export default function Home() {
@@ -65,6 +66,98 @@ export default function Home() {
                     </div>
                 </div >
             </section >
+
+
+            <section id="planos">
+                <div className="container content">
+                    <h4>Escolha o melhor plano para você</h4>
+                    <h2>Nossos Planos</h2>
+                    <div className="planos-cards">
+                        <div className="plano-card">
+                            <h3>Plano Básico</h3>
+                            <p className="plano-preco">Grátis</p>
+                            <h4>
+                                Ideal para pequenos produtores.
+                            </h4>
+                            <span>
+                                <Button text="Assinar" />
+                            </span>
+                            <div className="features-container">
+                                <div className="features-container">
+                                    <span className="features">
+                                        <img src={Check} alt="ícone check" width={24} height={24} />
+                                        <h4>Cadastro simplificado de animais</h4>
+                                    </span>
+                                    <span className="features">
+                                        <img src={Check} alt="ícone check" width={24} height={24} />
+                                        <h4>Controle de vacinas e tratamentos</h4>
+                                    </span>
+                                    <span className="features">
+                                        <img src={Check} alt="ícone check" width={24} height={24} />
+                                        <h4>Alertas de manejo e eventos importantes</h4>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="plano-card">
+                            <h3>Plano Avançado</h3>
+                            <p className="plano-preco">R$ 99,90/mês</p>
+                            <h4>
+                                Ideal para produtores que buscam otimizar a gestão do gado.
+                            </h4>
+                            <span>
+                                <Button text="Assinar" />
+                            </span>
+                            <div className="features-container">
+                                <span className="features">
+                                    <img src={Check} alt="ícone check" width={24} height={24} />
+                                    <h4>Relatórios detalhados de produção</h4>
+                                </span>
+                                <span className="features">
+                                    <img src={Check} alt="ícone check" width={24} height={24} />
+                                    <h4>Integração com dispositivos IoT</h4>
+                                </span>
+                                <span className="features">
+                                    <img src={Check} alt="ícone check" width={24} height={24} />
+                                    <h4>Controle financeiro e de despesas</h4>
+                                </span>
+                            </div>
+                        </div>
+                        <div className="plano-card">
+                            <h3>Plano Premium</h3>
+                            <p className="plano-preco">R$ 99,90/mês</p>
+                            <h4>
+                                Para grandes produtores que desejam total controle e eficiência.
+                            </h4>
+                            <span>
+                                <Button text="Assinar" />
+                            </span>
+                            <div className="features-container">
+                                <span className="features">
+                                    <img src={Check} alt="ícone check" width={24} height={24} />
+                                    <h4>Gestão avançada de rebanho</h4>
+                                </span>
+                                <span className="features">
+                                    <img src={Check} alt="ícone check" width={24} height={24} />
+                                    <h4>Previsão de produção com inteligência artificial</h4>
+                                </span>
+                                <span className="features">
+                                    <img src={Check} alt="ícone check" width={24} height={24} />
+                                    <h4>Planejamento de manejo e nutrição</h4>
+                                </span>
+                                <span className="features">
+                                    <img src={Check} alt="ícone check" width={24} height={24} />
+                                    <h4>Suporte técnico prioritário e treinamentos exclusivos</h4>
+                                </span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+
+
             <section id="testimonials">
                 <div className="container content">
                     <h2>Depoimentos</h2>
