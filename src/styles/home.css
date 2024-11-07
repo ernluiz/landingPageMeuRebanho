@@ -15,6 +15,10 @@
     margin-bottom: 20px;
 }
 
+#hero img {
+    position: relative;
+}
+
 #hero>img,
 #highlights>img,
 #testimonials>img,
@@ -189,7 +193,11 @@
 #contact textarea,
 #contact button {
     width: 100%;
-    max-width: 80%;
+    max-width: 100%;
+}
+
+.mobile-only {
+    display: none;
 }
 
 .planos-cards {
@@ -242,6 +250,18 @@
 }
 
 @media (max-width: 768px) {
+    .mobile-only {
+        display: block;
+        font-size: 2.2rem;
+        color: var(--terciary-color);
+        font-family: Montserrat black;
+        font-weight: bold;
+    }
+
+    .desktop-only {
+        display: none;
+    }
+
     .planos-cards {
         display: flex;
         flex-wrap: nowrap;
@@ -294,7 +314,6 @@
 
 input,
 textarea {
-    width: 60vw;
     padding: 12px;
     margin: 8px 0;
     border: 1px solid #ddd;
@@ -305,7 +324,6 @@ textarea {
 }
 
 textarea {
-    width: 80%;
     resize: none;
     min-height: 60px;
     padding: 12px;
@@ -315,7 +333,6 @@ textarea {
 input:focus,
 textarea:focus {
     border-color: #4caf50;
-    /* Cor de borda ao focar */
     outline: none;
     box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
 }

@@ -50,15 +50,9 @@ export default function Header() {
 
     const getLinkClass = (section: string) => (section === activeSection ? "active" : "");
 
-
-
-
-
     const handleMobileMenuLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, sectionId: string) => {
         event.preventDefault();
-        setShowMobileMenu(false);  // Fechar o menu
-
-        // Adicionar um pequeno atraso para garantir que o menu feche antes de rolar
+        setShowMobileMenu(false);
         setTimeout(() => {
             const normalizedSectionId = sectionId.startsWith('#') ? sectionId : `#${sectionId}`;
             const section = document.querySelector(normalizedSectionId) as HTMLElement;
@@ -66,19 +60,14 @@ export default function Header() {
             if (section) {
                 const offsetTop = section.getBoundingClientRect().top + window.scrollY;
                 window.scrollTo({
-                    top: offsetTop - 80,  // Ajustar a rolagem
+                    top: offsetTop - 80,
                     behavior: 'smooth',
                 });
             } else {
-                console.log(`Section with ID ${sectionId} not found`);
+                console.log(`Seção ${sectionId} nãoencontrada.`);
             }
-        }, 200);  // Delay de 200ms para garantir que o menu feche primeiro
+        }, 200);
     };
-
-
-
-
-
 
     return (
         <>
@@ -109,7 +98,6 @@ export default function Header() {
                                     </li>
                                 </ul>
                             </div>
-
                             <div className="desktop-only">
                                 <div className="flex items-center" style={{ gap: 10 }}>
                                     <a className="reverse-color ml-lg" href="#login">Login</a>
@@ -118,7 +106,9 @@ export default function Header() {
                                     }} />
                                 </div>
                             </div>
-
+                            <div className="mobile-header mobile-only">
+                                <span>Meu Rebanho</span>
+                            </div>
                             <div className="mobile-menu">
                                 {showMobileMenu ? (
                                     <div className="mobile-menu-content">

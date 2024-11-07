@@ -46,20 +46,20 @@ const ContactForm: React.FC = () => {
                 <form onSubmit={handleSubmit}>
                     <input
                         type="email"
-                        placeholder="Seu e-mail por onde deseja ser respondido"
+                        placeholder="Seu e-mail"
                         value={email}
                         onChange={(e) => setEmail(e.target.value)}
                         required
                     />
                     <textarea
-                        placeholder="Digite sua pergunta, sugestão ou crítica"
+                        placeholder="Sua pergunta, sugestão ou crítica"
                         value={message}
                         onChange={(e) => setMessage(e.target.value)}
                         required
                     ></textarea>
                     <Button
                         text={status === "sending" ? "Enviando..." : "Enviar"}
-                        func={() => handleSubmit} // Função anônima que chama handleSubmit corretamente
+                        func={() => handleSubmit}
                         disabled={status === "sending"}
                     />
                 </form>
