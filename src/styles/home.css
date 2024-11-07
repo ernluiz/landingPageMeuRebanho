@@ -2,7 +2,8 @@
 #highlights,
 #testimonials,
 #find-us,
-#planos {
+#planos,
+#contact {
     background: #f4f4f4;
     border-top: 0.125rem solid #e4e4e4;
     width: 100%;
@@ -27,7 +28,9 @@
 #hero p,
 #highlights p,
 #testimonials p,
-#find-us p {
+#find-us p,
+#planos p,
+#contact p {
     color: var(--second-text-color);
     margin: 10px 0;
 }
@@ -35,13 +38,14 @@
 #hero .content,
 #highlights .content,
 #testimonials .content,
-#find-us .content {
+#find-us .content,
+#contact .content {
     z-index: 1;
     display: flex;
     flex-direction: column;
     margin-top: 10px;
     text-align: center;
-    gap: 1.75rem;
+    gap: 1.5rem;
 }
 
 #hero .content>div,
@@ -57,9 +61,19 @@
 #highlights .content p,
 #testimonials .content p,
 #find-us .content p,
-#planos .content p {
+#planos .content p,
+#contact .content p {
     width: 80%;
     align-self: center;
+}
+
+#contact .content h3 {
+    margin-bottom: -20px;
+    color: var(--primary-color);
+}
+
+#contact .content h4 {
+    margin-top: -20px;
 }
 
 .highlight-item {
@@ -109,7 +123,7 @@
 }
 
 .content {
-    gap: 2.5rem;
+    /* gap: 2.5rem; */
     margin-bottom: 10px;
 }
 
@@ -156,30 +170,48 @@
     text-align: center;
 }
 
+#contact .container {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#contact form {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+#contact input,
+#contact textarea,
+#contact button {
+    width: 100%;
+    max-width: 80%;
+}
+
 .planos-cards {
     display: flex;
     justify-content: space-between;
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1rem;
 }
 
 .features-container {
     text-align: left;
-    /* Alinha o texto à esquerda */
 }
 
 .features {
     display: flex;
     align-items: top;
     margin-bottom: 10px;
-    /* Espaçamento entre os itens */
 }
 
 .features img {
     margin-right: 8px;
-    /* Espaçamento entre o ícone e o texto */
 }
-
 
 .plano-card {
     flex: 1;
@@ -206,5 +238,132 @@
 }
 
 .plano-card:hover {
-    transform: scale(1.1);
+    transform: scale(1.06);
+}
+
+@media (max-width: 768px) {
+    .planos-cards {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        width: 100vw;
+        height: 100vh;
+        gap: 1.2rem;
+        padding: 25px;
+    }
+
+    .plano-card {
+        flex: 0 0 auto;
+        min-width: 120px;
+        max-width: 180px;
+        margin-bottom: 10px;
+    }
+
+    .plano-card:last-child {
+        margin-right: 80px;
+    }
+
+    .planos-cards {
+        padding-bottom: 30px;
+        overflow-x: auto;
+    }
+
+    .planos-cards::-webkit-scrollbar {
+        height: 18px;
+    }
+
+    .planos-cards::-webkit-scrollbar-thumb {
+        background-color: #2a9d8f;
+        border-radius: 4px;
+    }
+
+    .planos-cards::-webkit-scrollbar-track {
+        background-color: #f0f0f0;
+    }
+
+    @supports (scrollbar-color: #2a9d8f #e0e0e0) {
+
+        .highlights-cards,
+        .planos-cards {
+            scrollbar-color: #2a9d8f #64efa9;
+            scrollbar-width: thin;
+        }
+    }
+}
+
+
+input,
+textarea {
+    width: 60vw;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    transition: all 0.3s ease;
+}
+
+textarea {
+    width: 80%;
+    resize: none;
+    min-height: 60px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+input:focus,
+textarea:focus {
+    border-color: #4caf50;
+    /* Cor de borda ao focar */
+    outline: none;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+input,
+textarea {
+    background-color: #fff;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input:disabled,
+textarea:disabled {
+    background-color: #f0f0f0;
+    border-color: #ccc;
+}
+
+button[type="submit"] {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 15px 20px;
+    font-size: 16px;
+    font-family: 'Roboto', sans-serif;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+p {
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+p.success {
+    color: #4caf50;
+}
+
+p.error {
+    color: #f44336;
 }

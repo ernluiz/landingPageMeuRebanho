@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Button from "../components/button/button";
+import Button from "./button/Button";
 import Logo from "../assets/logoMeuRebanho.svg";
 import Menu from "../assets/hamburger-menu.svg";
 import Close from "../assets/close-square.svg";
@@ -50,27 +50,35 @@ export default function Header() {
 
     const getLinkClass = (section: string) => (section === activeSection ? "active" : "");
 
-    // Função para rolar para a seção e fechar o menu mobile
+
+
+
+
     const handleMobileMenuLinkClick = (event: React.MouseEvent<HTMLAnchorElement, MouseEvent>, sectionId: string) => {
-        event.preventDefault(); 
-        setShowMobileMenu(false);
-    
-        const normalizedSectionId = sectionId.startsWith('#') ? sectionId : `#${sectionId}`;
-    
-        const section = document.querySelector(normalizedSectionId) as HTMLElement;
-        
-        if (section) {
-            const offsetTop = section.getBoundingClientRect().top + window.scrollY;
-    
-            window.scrollTo({
-                top: offsetTop - 80,
-                behavior: 'smooth',
-            });
-        } else {
-            console.log(`Section with ID ${sectionId} not found`);
-        }
+        event.preventDefault();
+        setShowMobileMenu(false);  // Fechar o menu
+
+        // Adicionar um pequeno atraso para garantir que o menu feche antes de rolar
+        setTimeout(() => {
+            const normalizedSectionId = sectionId.startsWith('#') ? sectionId : `#${sectionId}`;
+            const section = document.querySelector(normalizedSectionId) as HTMLElement;
+
+            if (section) {
+                const offsetTop = section.getBoundingClientRect().top + window.scrollY;
+                window.scrollTo({
+                    top: offsetTop - 80,  // Ajustar a rolagem
+                    behavior: 'smooth',
+                });
+            } else {
+                console.log(`Section with ID ${sectionId} not found`);
+            }
+        }, 200);  // Delay de 200ms para garantir que o menu feche primeiro
     };
-    
+
+
+
+
+
 
     return (
         <>
@@ -85,10 +93,16 @@ export default function Header() {
                                         <a href="#hero" className={getLinkClass("hero")}>Home</a>
                                     </li>
                                     <li>
-                                        <a href="#highlights" className={getLinkClass("highlights")}>Nossos destaques</a>
+                                        <a href="#highlights" className={getLinkClass("highlights")}>Destaques</a>
+                                    </li>
+                                    <li>
+                                        <a href="#planos" className={getLinkClass("planos")}>Nossos planos</a>
                                     </li>
                                     <li>
                                         <a href="#testimonials" className={getLinkClass("testimonials")}>Depoimentos</a>
+                                    </li>
+                                    <li>
+                                        <a href="#contact" className={getLinkClass("contact")}>Contato</a>
                                     </li>
                                     <li>
                                         <a href="#find-us" className={getLinkClass("find-us")}>Onde nos encontrar</a>
@@ -101,7 +115,7 @@ export default function Header() {
                                     <a className="reverse-color ml-lg" href="#login">Login</a>
                                     <Button text="Cadastre-se" func={function (): void {
                                         throw new Error("Function not implemented.");
-                                    } } />
+                                    }} />
                                 </div>
                             </div>
 
@@ -114,10 +128,16 @@ export default function Header() {
                                                     <a href="#hero" className={getLinkClass("hero")} onClick={(e) => handleMobileMenuLinkClick(e, "#hero")}>Home</a>
                                                 </li>
                                                 <li>
-                                                    <a href="#highlights" className={getLinkClass("highlights")} onClick={(e) => handleMobileMenuLinkClick(e, "#highlights")}>Nossos destaques</a>
+                                                    <a href="#highlights" className={getLinkClass("highlights")} onClick={(e) => handleMobileMenuLinkClick(e, "#highlights")}>Destaques</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#planos" className={getLinkClass("planos")} onClick={(e) => handleMobileMenuLinkClick(e, "#planos")}>Nossos planos</a>
                                                 </li>
                                                 <li>
                                                     <a href="#testimonials" className={getLinkClass("testimonials")} onClick={(e) => handleMobileMenuLinkClick(e, "#testimonials")}>Depoimentos</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#contact" className={getLinkClass("contact")} onClick={(e) => handleMobileMenuLinkClick(e, "#contact")}>Contato</a>
                                                 </li>
                                                 <li>
                                                     <a href="#find-us" className={getLinkClass("find-us")} onClick={(e) => handleMobileMenuLinkClick(e, "#find-us")}>Onde nos encontrar</a>
