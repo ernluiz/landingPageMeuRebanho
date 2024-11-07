@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 import "./styles/home.css";
 import "./styles/utility.css";
 import HighlightsSection from "./components/HighlightsSection";

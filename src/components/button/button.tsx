@@ -10,9 +10,9 @@ interface IButtonProps {
 
 export default function Button({ text, secondary, func, disabled }: IButtonProps) {
     return (
-        <button 
-            className={`btn ${secondary ? 'btn-secondary' : 'btn-primary'}`} 
-            onClick={func} 
+        <button
+            className={`btn ${secondary ? 'btn-secondary' : 'btn-primary'}`}
+            onClick={func}
             disabled={disabled}
         >
             {text}
