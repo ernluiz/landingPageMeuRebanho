@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "./button/Button";
+import Button from "./button/button";
 import Check from "../assets/check.svg";
 
 const PlansSection: React.FC = () => {

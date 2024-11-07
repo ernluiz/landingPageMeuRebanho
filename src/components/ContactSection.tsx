@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Button from "./button/Button";
+import Button from "./button/button";
 
 const GOOGLE_CLOUD_FUNCTION_URL = "https://us-central1-projeto-arch-lambda-lfern.cloudfunctions.net/function-1";
 
