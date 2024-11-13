@@ -1,40 +1,43 @@
 import { useState } from "react";
 import Button from "./button/button";
 
-const GOOGLE_CLOUD_FUNCTION_URL = "https://us-central1-projeto-arch-lambda-lfern.cloudfunctions.net/function-1";
+const GOOGLE_CLOUD_FUNCTION_URL = "https://us-central1-projeto-arch-lambda-lfern.cloudfunctions.net/function-3";
 
 const ContactForm: React.FC = () => {
     const [email, setEmail] = useState("");
     const [message, setMessage] = useState("");
     const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
+
+        if (!email || !message) {
+            alert("Por favor, preencha todos os campos.");
+            return;
+        }
+
         setStatus("sending");
 
-        try {
-            const response = await fetch(GOOGLE_CLOUD_FUNCTION_URL, {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    email,
-                    message,
-                }),
-            });
-
-            if (response.ok) {
+        fetch(GOOGLE_CLOUD_FUNCTION_URL, {
+            method: "POST",
+            mode: "no-cors",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                email: email,
+                conteudo: message,
+            }),
+        })
+            .then(() => {
                 setStatus("success");
                 setEmail("");
                 setMessage("");
-            } else {
-                throw new Error("Erro ao enviar a mensagem");
-            }
-        } catch (error) {
-            console.error("Erro:", error);
-            setStatus("error");
-        }
+            })
+            .catch(error => {
+                console.error("Erro:", error);
+                setStatus("error");
+            });
     };
 
     return (
@@ -59,7 +62,7 @@ const ContactForm: React.FC = () => {
                     ></textarea>
                     <Button
                         text={status === "sending" ? "Enviando..." : "Enviar"}
-                        func={() => handleSubmit}
+                        func={handleSubmit}
                         disabled={status === "sending"}
                     />
                 </form>
