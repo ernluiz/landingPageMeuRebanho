@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Button from "./button/button";
+import Button from "../components/button/button";
 import Logo from "../assets/logoMeuRebanho.svg";
 import Menu from "../assets/hamburger-menu.svg";
 import Close from "../assets/close-square.svg";
